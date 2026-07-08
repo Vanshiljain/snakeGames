@@ -1,0 +1,21 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install and Build
+      run: |
+        npm install
+        npm run build
+    - name: Deploy
+      run: |
+        echo "Deployment step goes here"
+        # Add actual deployment commands here
